@@ -4,7 +4,7 @@
 ## Short term
 
 - [x] Make a simple goal system
-- [ ] Put on github
+- [x] Put on github
 - [ ] Put in a tree component
 
 
