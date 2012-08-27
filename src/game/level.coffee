@@ -72,10 +72,12 @@ class Map
       agent.text = @level.getMap().goals[0](agent)
 
   shadow: ->
+    ###
     @context.shadowColor = "#999"
     @context.shadowBlur = 5
     @context.shadowOffsetX = 3
     @context.shadowOffsetY = 3
+    ###
   
   noShadow: ->
     @context.shadowBlur = 0
@@ -84,8 +86,8 @@ class Map
 
   drawGrid: ->
     @noShadow @context
-    @context.fillStyle = "rgb(150, 150, 150)"
-    @context.strokeStyle = "rgb(50, 50, 50)"
+    @context.fillStyle = "rgb(50, 150, 150)"
+    @context.strokeStyle = "rgb(150, 150, 150)"
     x = @gridSize
 
     while x < @context.canvas.width
