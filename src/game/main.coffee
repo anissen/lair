@@ -5,7 +5,7 @@ TaskStatus = require("core/taskstatus")
 
 class TweenAction extends Task
   constructor: (obj, to, easing = TWEEN.Easing.Elastic.InOut, duration = 5000) ->
-    console.log 'TweenAction initialized'
+    #console.log 'TweenAction initialized'
     @status = null
     @tween = new TWEEN.Tween(obj)
       .to(to, duration)
@@ -59,13 +59,14 @@ for waypointId, waypoint of waypoints
     color: Math.random() * 255
   root.add new TweenAction agent, to, TWEEN.Easing.Quintic.InOut, 2000
 
-agent.init 1, 1
+agentStart = level.getMap().start
+agent.init agentStart.x, agentStart.y
 agent.setBehavior root
 level.addAgent agent
 
 
 # ---- agent #2 ----
-
+###
 agent2 = new window.Agent
 root2 = new Sequence()
 for waypointId, waypoint of waypoints
@@ -79,7 +80,7 @@ for waypointId, waypoint of waypoints
 agent2.init 8, 8
 agent2.setBehavior root2
 level.addAgent agent2
-
+###
 
 
 run = ->

@@ -2,7 +2,7 @@
 class Agent
   constructor: ->
   init: (@x = 0, @y = 0, @color = 0, @rotation = 0, @size = 50, @text = 'Agent') ->
-    console.log 'Agent initialized'
+    #console.log 'Agent initialized'
   setBehavior: (@behavior) ->
   update: ->
     @behavior?.execute()
@@ -12,7 +12,7 @@ class Level
   constructor: ->
     @agents = []
   init: ->
-    console.log 'Level initialized'
+    #console.log 'Level initialized'
   addAgent: (agent) ->
     @agents.push agent
   getMap: ->
@@ -20,24 +20,32 @@ class Level
     height: 10
     waypoints:
       'W1':
+        x: 8
+        y: 4
+      'W2':
+        x: 8
+        y: 2
+      'W3':
         x: 2
         y: 2
-      'W2':
-        x: 7
-        y: 4
-      'W3':
-        x: 9
-        y: 7
-      'some waypoint':
-        x: 12
-        y: 1
+      'W4':
+        x: 2
+        y: 6
     blocks: [
-      { x: 1, y: 4 }
-      { x: 6, y: 2 }
+      { x: 7,  y: 4 }
+      { x: 6,  y: 3 }
+      { x: 12, y: 4 }
+      { x: 10, y: 4 }
+      { x: 7,  y: 0 }
+      { x: 2,  y: 2 }
+      { x: 0,  y: 5 }
     ]
+    start:
+      x: 12
+      y: 4
     goals: [
       (agent) => 
-        goal = @getMap().waypoints['W2']
+        goal = @getMap().waypoints['W4']
         ###
         these goals should be formulated as Tasks
 
@@ -45,7 +53,7 @@ class Level
         description: 'Spot the intruder', status: SUCCES/FAILURE/ERROR/RUNNING 
         (where RUNNING means that the goal is persued, eg. assisted by a count/total)
         ###
-        Math.round(agent.x) is goal.x and Math.round(agent.y) is goal.y
+        Math.round(agent.x - 0.5) is goal.x and Math.round(agent.y - 0.5) is goal.y
     ]
 
 
@@ -57,35 +65,25 @@ class Map
 
   init: (@context, @level) ->
     @gridSize = 75
-    console.log 'Map initialized'
+    @goalReached = false
+    #console.log 'Map initialized'
   
   draw: ->
     @context.clearRect 0, 0, @context.canvas.width, @context.canvas.height
     @drawGrid()
-    #drawBlocks @context
+    @drawBlocks()
+    @drawStart()
     @drawWaypoints()
     @drawAgent agent for agent in @level.agents
 
   update: ->
+    return if @goalReached
     for agent in @level.agents
       agent.update()
-      agent.text = @level.getMap().goals[0](agent)
-
-  shadow: ->
-    ###
-    @context.shadowColor = "#999"
-    @context.shadowBlur = 5
-    @context.shadowOffsetX = 3
-    @context.shadowOffsetY = 3
-    ###
-  
-  noShadow: ->
-    @context.shadowBlur = 0
-    @context.shadowOffsetX = 0
-    @context.shadowOffsetY = 0
+      if @level.getMap().goals[0](agent)
+        @goalReached = true
 
   drawGrid: ->
-    @noShadow @context
     @context.fillStyle = "rgb(50, 150, 150)"
     @context.strokeStyle = "rgb(150, 150, 150)"
     x = @gridSize
@@ -117,19 +115,25 @@ class Map
     rotRadians = rotDegrees * (Math.PI / 180)
     @context.rotate rotRadians
     
-    @shadow()
     colorIndex = Math.floor(agent.color)
     @context.fillStyle = "rgb(" + colorIndex + ", 0, " + (255 - colorIndex) + ")"
     @context.fillRect -agent.size / 2, -agent.size / 2, agent.size, agent.size
     
     @context.restore()
 
-    @noShadow()
     @context.fillStyle = "rgb(" + (255 - colorIndex) + ", 255, " + colorIndex + ")"
     @context.textAlign = "center"
     @context.textBaseline = "middle"
     @context.fillText agent.text, 0, 0
     @context.restore()
+
+  drawBlocks: ->
+    blocks = @level.getMap().blocks
+    for block in blocks
+      @drawTile block, "rgb(30, 30, 30)"
+
+  drawStart: ->
+    @drawTile @level.getMap().start, "rgb(130, 30, 130)"
 
   drawWaypoints: ->
     boxSize = 50
@@ -137,7 +141,6 @@ class Map
     for key of waypoints
       pos = @getPoint waypoints[key]
 
-      @shadow()
       @context.fillStyle = "rgb(240, 200, 50)"
       @context.beginPath()
       @context.arc pos.x, pos.y, boxSize / 2, 0, 2 * Math.PI, false
@@ -146,11 +149,18 @@ class Map
       @context.strokeStyle = "rgb(120, 100, 25)"
       @context.stroke()
 
-      @noShadow()
       @context.fillStyle = "rgb(120, 100, 25)"
       @context.textAlign = "center"
       @context.textBaseline = "middle"
       @context.fillText key, pos.x, pos.y
+
+  drawTile: (obj, color) ->
+    pos = @getPoint obj
+    @context.save()
+    @context.translate pos.x, pos.y
+    @context.fillStyle = color
+    @context.fillRect @gridSize / 2, @gridSize / 2, @gridSize, @gridSize
+    @context.restore()
 
   getPoint: (obj) ->
     x: (obj.x + 0.5) * @gridSize
