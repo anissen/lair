@@ -21,36 +21,36 @@ class Level
     waypoints:
       'W1':
         x: 8
-        y: 4
+        y: 3
       'W2':
         x: 8
-        y: 2
+        y: 1
       'W3':
         x: 2
-        y: 2
+        y: 1
       'W4':
         x: 2
-        y: 6
-    blocks: [
-      { x: 7,  y: 4 }
-      { x: 6,  y: 3 }
-      { x: 12, y: 4 }
-      { x: 10, y: 4 }
-      { x: 7,  y: 0 }
-      { x: 2,  y: 2 }
-      { x: 0,  y: 5 }
+        y: 5
+    tiles: [
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,1,1,1,1,1,1,1,0,0,0,0,0,0],
+        [0,0,1,0,0,0,0,0,1,0,0,0,0,0,0],
+        [0,0,1,0,0,0,0,0,1,1,1,1,1,1,2],
+        [0,0,1,0,0,0,0,0,1,0,0,0,0,0,0],
+        [0,0,1,1,1,1,1,1,1,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
     ]
     start:
       x: 12
-      y: 4
+      y: 3
     goals: [
-      (agent) => 
+      (agent) =>
         goal = @getMap().waypoints['W4']
         ###
         these goals should be formulated as Tasks
 
         should probably return something like
-        description: 'Spot the intruder', status: SUCCES/FAILURE/ERROR/RUNNING 
+        description: 'Spot the intruder', status: SUCCES/FAILURE/ERROR/RUNNING
         (where RUNNING means that the goal is persued, eg. assisted by a count/total)
         ###
         Math.round(agent.x - 0.5) is goal.x and Math.round(agent.y - 0.5) is goal.y
@@ -67,13 +67,12 @@ class Map
     @gridSize = 75
     @goalReached = false
     #console.log 'Map initialized'
-  
+
   draw: ->
     @context.clearRect 0, 0, @context.canvas.width, @context.canvas.height
-    @drawGrid()
-    @drawBlocks()
-    @drawStart()
+    @drawTiles()
     @drawWaypoints()
+    @drawGrid()
     @drawAgent agent for agent in @level.agents
 
   update: ->
@@ -114,11 +113,11 @@ class Map
     rotDegrees = Math.floor(agent.rotation)
     rotRadians = rotDegrees * (Math.PI / 180)
     @context.rotate rotRadians
-    
+
     colorIndex = Math.floor(agent.color)
     @context.fillStyle = "rgb(" + colorIndex + ", 0, " + (255 - colorIndex) + ")"
     @context.fillRect -agent.size / 2, -agent.size / 2, agent.size, agent.size
-    
+
     @context.restore()
 
     @context.fillStyle = "rgb(" + (255 - colorIndex) + ", 255, " + colorIndex + ")"
@@ -131,6 +130,26 @@ class Map
     blocks = @level.getMap().blocks
     for block in blocks
       @drawTile block, "rgb(30, 30, 30)"
+
+  drawTiles: ->
+    tiles = @level.getMap().tiles
+    y = 0
+    for tileRow in tiles
+      x = 0
+      for tileType in tileRow
+        tile =
+          x: x - 1
+          y: y - 1
+        switch tileType
+          when 0
+            tileColor = 'rgb(40, 40, 40)'
+          when 1
+            tileColor = 'rgb(220, 220, 220)'
+          when 2
+            tileColor = 'rgb(40, 80, 160)'
+        @drawTile tile, tileColor
+        x++
+      y++
 
   drawStart: ->
     @drawTile @level.getMap().start, "rgb(130, 30, 130)"
@@ -164,7 +183,9 @@ class Map
 
   getPoint: (obj) ->
     x: (obj.x + 0.5) * @gridSize
-    y: (obj.y + 0.5) * @gridSize 
+    y: (obj.y + 0.5) * @gridSize
+
+
 
 
 window.Agent = Agent

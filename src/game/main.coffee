@@ -1,7 +1,8 @@
-CallbackTask = require("core/callbacktask")
-Sequence = require("core/sequence")
-Task = require("core/task")
-TaskStatus = require("core/taskstatus")
+
+CallbackTask = require('core/callbacktask')
+Sequence = require('core/sequence')
+Task = require('core/task')
+TaskStatus = require('core/taskstatus')
 
 class TweenAction extends Task
   constructor: (obj, to, easing = TWEEN.Easing.Elastic.InOut, duration = 5000) ->
@@ -12,11 +13,11 @@ class TweenAction extends Task
       .easing(easing)
       #.onUpdate(@onUpdate)
       .onComplete(@onCompleted)
-  
-  #onUpdate: => 
+
+  #onUpdate: =>
   #  update()
 
-  onCompleted: => 
+  onCompleted: =>
     #console.log 'TweenTask COMPLETED'
     @status = TaskStatus.SUCCESS
 
@@ -35,7 +36,6 @@ class TweenAction extends Task
     @status
 
 
-
 context = canvas.getContext '2d'
 
 level = new window.Level
@@ -52,7 +52,7 @@ waypoints = level.getMap().waypoints
 agent = new window.Agent
 root = new Sequence()
 for waypointId, waypoint of waypoints
-  to = 
+  to =
     x: waypoint.x
     y: waypoint.y
     rotation: Math.floor(Math.random() * 5) * 90
@@ -66,11 +66,10 @@ level.addAgent agent
 
 
 # ---- agent #2 ----
-###
 agent2 = new window.Agent
 root2 = new Sequence()
 for waypointId, waypoint of waypoints
-  to = 
+  to =
     x: waypoint.x
     y: waypoint.y
     rotation: Math.floor(Math.random() * 5) * 90
@@ -80,7 +79,7 @@ for waypointId, waypoint of waypoints
 agent2.init 8, 8
 agent2.setBehavior root2
 level.addAgent agent2
-###
+
 
 
 run = ->
