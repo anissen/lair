@@ -81,6 +81,27 @@ agent2.setBehavior root2
 level.addAgent agent2
 
 
+acceptableTiles = [1]
+callback = (path) ->
+  if not path?
+    console.log "Path was not found."
+  else
+    console.log "Path was found:"
+    console.log path
+
+easyStar = new EasyStar.js acceptableTiles, callback
+
+easyStar.setGrid level.getMap().tiles
+
+startX = 12
+startY = 3
+endX = 2
+endY = 5
+easyStar.setPath startX, startY, endX, endY
+
+easyStar.calculate()
+
+
 
 run = ->
   #root.execute()
