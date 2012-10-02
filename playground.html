@@ -22,25 +22,42 @@
 
       <section id="example">
         <div class="page-header">
-          <h2>Lair</h2>
+          <h1>Lair</h1>
         </div>
 
         <div class="row">
-          <div class="span12 well">
+          <div class="span12 well well-small">
             <h4>Map Overview</h4>
             <canvas id="canvas" width="1125px" height="525px"></canvas>
           </div>
         </div>
-        <div class="row">
-          <div id="library-tree" class="span4 well"><h4>Behavior Library</h4></div>
-          <div id="behavior-tree" class="span4 well"><h4>Behavior Tree</h4>
-            <a id="assign-behavior" href="#" class="btn">Assign behavior</a>
+
+        <div class="row-fluid">
+          <div class="span12 well well-small">
+
+            <div class="row-fluid">
+              <div class="span4">
+                <h4>Behavior Library</h4>
+                <div id="library-tree"></div>
+              </div>
+
+              <div class="span4">
+                <h4>Behavior Tree</h4>
+                <div id="behavior-tree"></div>
+                <a id="assign-behavior" href="#" class="btn btn-block">Assign behavior</a>
+              </div>
+
+              <div class="span4">
+                <h4 class="hide">Empty space (properties?)</h4>
+              </div>
+            </div>
+
           </div>
-          <div class="span4 well"><h4>Empty space (properties?)</h4></div>
         </div>
+
       </section>
 
-    </div><!-- /container -->
+    </div>
 
     <script src="lib/jquery/jquery.min.js" type="text/javascript"></script>
     <script src="lib/RequestAnimationFrame.js"></script>
