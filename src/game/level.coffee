@@ -15,29 +15,33 @@ class Level
     #console.log 'Level initialized'
   addAgent: (agent) ->
     @agents.push agent
+  getAgent: (index) ->
+    @agents[index]
+  getWaypointPosition: (waypointId) ->
+    @getMap().waypoints[waypointId]
   getMap: ->
     width: 10
     height: 10
     waypoints:
       'W1':
-        x: 8
-        y: 3
+        x: 9
+        y: 1
       'W2':
-        x: 8
+        x: 1
         y: 1
       'W3':
-        x: 2
-        y: 1
+        x: 7
+        y: 3
       'W4':
-        x: 2
-        y: 5
+        x: 3
+        y: 3
     tiles: [
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,1,1,1,1,1,1,1,0,0,0,0,0,0],
-        [0,0,1,0,0,0,0,0,1,0,0,0,0,0,0],
-        [0,0,1,0,0,0,0,0,1,1,1,1,1,1,2],
-        [0,0,1,0,0,0,0,0,1,0,0,0,0,0,0],
-        [0,0,1,1,1,1,1,1,1,0,0,0,0,0,0],
+        [0,1,1,1,1,1,1,1,1,1,0,0,0,0,0],
+        [0,1,0,0,0,1,0,0,0,1,0,0,0,0,0],
+        [0,1,0,1,1,1,1,1,0,1,1,1,1,1,2],
+        [0,1,0,0,0,0,0,0,0,1,0,0,0,0,0],
+        [0,1,1,1,1,1,1,1,1,1,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
     ]
     start:
@@ -64,7 +68,7 @@ class Map
   constuctor: ->
 
   init: (@context, @level) ->
-    @gridSize = 75
+    @gridSize = 60
     @goalReached = false
     #console.log 'Map initialized'
 
@@ -79,8 +83,8 @@ class Map
     return if @goalReached
     for agent in @level.agents
       agent.update()
-      if @level.getMap().goals[0](agent)
-        @goalReached = true
+      #if @level.getMap().goals[0](agent)
+      #  @goalReached = true
 
   drawGrid: ->
     @context.fillStyle = "rgb(50, 150, 150)"

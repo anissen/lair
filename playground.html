@@ -28,7 +28,7 @@
         <div class="row">
           <div class="span12 well well-small">
             <h4>Map Overview</h4>
-            <canvas id="canvas" width="1125px" height="525px"></canvas>
+            <canvas id="canvas" width="1125px" height="420px"></canvas>
           </div>
         </div>
 
@@ -42,9 +42,8 @@
               </div>
 
               <div class="span4">
-                <h4>Behavior Tree</h4>
+                <h4>Behavior Tree <a id="assign-behavior" href="#" class="btn btn-primary btn-mini pull-right">Assign behavior</a></h4>
                 <div id="behavior-tree"></div>
-                <a id="assign-behavior" href="#" class="btn btn-block">Assign behavior</a>
               </div>
 
               <div class="span4">
@@ -76,22 +75,6 @@
     <script type="text/javascript" src="lib/extjs/ext-all.js"></script>
     <script type="text/javascript" src="lib/extjs/two-trees.js"></script>
 
-    <script type="text/javascript">
-      $(document).ready(function() {
-        $('#assign-behavior').on('click', function() {
-          printTree(behaviorTree.getRootNode(), '');
-        });
-      });
-
-      function printTree(node, indent) {
-        indent += '-'
-        $.each(node.childNodes, function (i, n) {
-          console.log(n.data);
-          console.log(indent + n.data.text);
-          printTree(n, indent);
-        });
-      }
-    </script>
 
   </body>
 </html>
