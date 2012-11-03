@@ -48,7 +48,8 @@
               </div>
 
               <div class="span4">
-                <h4 class="hide">Empty space (properties?)</h4>
+                <h4>Properties</h4>
+                <div id="property-grid"></div>
               </div>
             </div>
 
@@ -85,6 +86,7 @@
       function printTree(node, indent) {
         indent += '-'
         $.each(node.childNodes, function (i, n) {
+          console.log(n.data);
           console.log(indent + n.data.text);
           printTree(n, indent);
         });

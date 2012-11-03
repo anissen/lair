@@ -114,7 +114,7 @@ class MovePathTask extends Task
           return TaskStatus.SUCCESS
 
         p = path[@pathCount]
-        console.log p.x, p.y
+        #console.log p.x, p.y
         @agent.x = p.x
         @agent.y = p.y
         @pathCount++

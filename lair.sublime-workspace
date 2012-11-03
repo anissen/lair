@@ -1,0 +1,902 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"grid",
+				"gridSize"
+			],
+			[
+				"gri",
+				"gridSize"
+			],
+			[
+				"pr",
+				"printMaze"
+			],
+			[
+				"w",
+				"width"
+			],
+			[
+				"to",
+				"toY"
+			],
+			[
+				"dire",
+				"direction"
+			],
+			[
+				"direct",
+				"directions"
+			],
+			[
+				"tw",
+				"tweenAction"
+			],
+			[
+				"Tas",
+				"TaskStatus"
+			],
+			[
+				"start",
+				"startY"
+			],
+			[
+				"be",
+				"behaviorTree"
+			],
+			[
+				"goal",
+				"goalReached"
+			],
+			[
+				"go",
+				"goalReached"
+			],
+			[
+				"dra",
+				"drawTile"
+			],
+			[
+				"way",
+				"waypoints"
+			],
+			[
+				"gt",
+				"getPoint"
+			],
+			[
+				"ro",
+				"rotation"
+			],
+			[
+				"ini",
+				"initialized"
+			],
+			[
+				"coff",
+				"coffee"
+			],
+			[
+				"draw",
+				"drawBlocks"
+			],
+			[
+				"wa",
+				"waypointId"
+			],
+			[
+				"Twe",
+				"TweenAction"
+			],
+			[
+				"ex",
+				"extends"
+			],
+			[
+				"S",
+				"SUCCESS"
+			],
+			[
+				"ru",
+				"runningTask"
+			],
+			[
+				"fill",
+				"fillStyle"
+			],
+			[
+				"for",
+				"for	for (…) {…}"
+			],
+			[
+				"out",
+				"outputEl"
+			],
+			[
+				"requ",
+				"RequestAnimationFrame"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/game/main.coffee",
+			"settings":
+			{
+				"buffer_size": 3654,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "playground.html",
+			"settings":
+			{
+				"buffer_size": 2925,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lib/extjs/two-trees.js",
+			"settings":
+			{
+				"buffer_size": 1513,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 67.0,
+		"selected_items":
+		[
+			[
+				"pyth",
+				"Set Syntax: Python"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"java",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"new ",
+				"Tasks: New document"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"lint",
+				"SublimeLinter: Save-Only Linting"
+			],
+			[
+				"previ",
+				"Markdown Preview: current file in browser"
+			],
+			[
+				"save-o",
+				"SublimeLinter: Save-Only Linting"
+			],
+			[
+				"linter",
+				"SublimeLinter: Save-Only Linting"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/nissen/Documents/elements.txt",
+		"/Users/nissen/code/mongodb-course/bottle_server.py",
+		"/Users/nissen/code/amaze/maze.html",
+		"/Users/nissen/code/amaze/recursive-backtracking-maze.js",
+		"/Users/nissen/code/mongodb-course/helloworld.py",
+		"/Users/nissen/code/mongodb-course/hello_pymongo.py",
+		"/Users/nissen/code/planetarium/style.css",
+		"/Users/nissen/code/planetarium/index.html",
+		"/Users/nissen/code/planetarium/lib/planets/planetarium.coffee",
+		"/Users/nissen/Documents/CV-game/ansøgning/ansoegning.tex",
+		"/Users/nissen/Documents/CV-game/cv.tex",
+		"/Users/nissen/code/lair/lib/extjs/two-trees.js",
+		"/Users/nissen/code/lair/src/game/level.coffee",
+		"/Users/nissen/code/lair/src/game/main.coffee",
+		"/Users/nissen/code/lair/roadmap.todo",
+		"/Users/nissen/code/lair/playground.html",
+		"/Users/nissen/Library/Application Support/Sublime Text 2/Packages/User/CoffeeScript/new-behave-task.sublime-snippet",
+		"/Users/nissen/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/nissen/code/lair/testing-file.html",
+		"/Users/nissen/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/Users/nissen/code/lair/stuff.css",
+		"/Users/nissen/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/nissen/Library/Application Support/Sublime Text 2/Packages/User/PlainTasks.sublime-settings",
+		"/Users/nissen/Library/Application Support/Sublime Text 2/Packages/PlainTasks/messages/Tutorial.todo",
+		"/Users/nissen/Library/Application Support/Sublime Text 2/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/nissen/Library/Application Support/Sublime Text 2/Packages/PlainTasks/PlainTasks (OSX).sublime-settings",
+		"/Users/nissen/Library/Application Support/Sublime Text 2/Packages/PlainTasks/Default (OSX).sublime-keymap",
+		"/Users/nissen/code/lair-yeoman/app/scripts/game/app.coffee",
+		"/Users/nissen/code/lair-yeoman/app/scripts/main.js",
+		"/Users/nissen/code/lair-yeoman/Gruntfile.js",
+		"/Users/nissen/Library/Application Support/Sublime Text 2/Packages/User/SublimeLinter.sublime-settings",
+		"/Users/nissen/Library/Application Support/Sublime Text 2/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/Users/nissen/code/lair-yeoman/app/scripts/app.coffee",
+		"/Users/nissen/code/lair-yeoman/app/scripts/app.js",
+		"/Users/nissen/code/lair-yeoman/app/index.html",
+		"/Users/nissen/code/lair-yeoman/app/playground.html",
+		"/Users/nissen/code/lair-yeoman/package.json",
+		"/Users/nissen/code/lair-yeoman/app/scripts/game/main.coffee",
+		"/Users/nissen/code/lair/two-trees.html",
+		"/Users/nissen/code/yeoman-test/app/index.html",
+		"/Users/nissen/code/lair/README.md",
+		"/Users/nissen/code/lair/todo.md",
+		"/Users/nissen/code/yeoman-test/test/index.html",
+		"/Users/nissen/code/behave/README.md",
+		"/Users/nissen/code/lair/package.json",
+		"/Users/nissen/code/playground/todo.md",
+		"/Users/nissen/code/playground/src/game/level.coffee",
+		"/Users/nissen/code/playground/src/game/main.coffee",
+		"/Users/nissen/code/playground/src/game/moveTask.coffee",
+		"/Users/nissen/code/playground/slug.json",
+		"/Users/nissen/code/playground/playground.html",
+		"/Users/nissen/code/playground/package.json",
+		"/Users/nissen/code/playground/src/core/callbacktask.coffee",
+		"/Users/nissen/code/playground/src/game/astar.coffee",
+		"/Users/nissen/code/behave/test/core/compositetask.coffee",
+		"/Users/nissen/code/behave/src/core/selector.coffee",
+		"/Users/nissen/code/playground/src/game/pathfinding.coffee",
+		"/Users/nissen/code/behave/src/core/task.coffee",
+		"/Users/nissen/code/behave/test/core/sequence-test.coffee",
+		"/Users/nissen/code/behave/test/misc-test.coffee",
+		"/Users/nissen/code/behave/cakefile",
+		"/Users/nissen/code/behave/src/core/sequence.coffee",
+		"/Users/nissen/code/behave/src/core/compositetask.coffee",
+		"/Users/nissen/code/behave/src/core/callbacktask.coffee",
+		"/Users/nissen/code/behave/test/core/task-test.coffee",
+		"/Users/nissen/code/behave/lib/behave.js",
+		"/Users/nissen/code/behave/slug.json",
+		"/Users/nissen/code/behave/playground.html",
+		"/Users/nissen/Documents/CV/cv.tex",
+		"/Users/nissen/Documents/CV/ansøgning/ansøgning.tex",
+		"/Users/nissen/code/behave/examples/sandbox.htm",
+		"/Users/nissen/code/behave/examples/simple.htm"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"console",
+			"10",
+			"\"",
+			"div",
+			"y",
+			"x",
+			"carve_passage_from",
+			"content",
+			"planet-info",
+			"ÆNDR",
+			"}\n",
+			"%",
+			"Telefon",
+			"@",
+			" * 75",
+			"span4 well well-small",
+			"0",
+			"],\n",
+			"tween",
+			"\"",
+			"ignored",
+			"- [ ] ",
+			"super+k",
+			"super+f",
+			"super+alt+f",
+			"super+shift+f",
+			"super+shift",
+			"+f",
+			"true",
+			"\"",
+			"lib",
+			"\"/>\n",
+			"h1",
+			"      { x: 6, y: 3 }\n",
+			"}\n",
+			"log",
+			"shad",
+			"master mind",
+			"small",
+			"root = new Sequence()\n",
+			"root",
+			"player",
+			"waypoint",
+			"context",
+			"boxSize",
+			"context",
+			">\n",
+			"gridSize",
+			" context",
+			"context",
+			"point",
+			"wayp",
+			"loadM",
+			"countt",
+			"TaskStatus",
+			"\")\n",
+			"\n\\",
+			"highlight",
+			"\n\\",
+			"ctx",
+			"'",
+			"\"",
+			"Math.floor(position.colorIndex)",
+			"path",
+			"synch"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"agent",
+			"@context",
+			"@boxSize",
+			"@context",
+			"@gridSize",
+			" @context",
+			"\"",
+			"'"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/game/main.coffee",
+					"settings":
+					{
+						"buffer_size": 3654,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								454,
+								454
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_mark_style": "outline",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "playground.html",
+					"settings":
+					{
+						"buffer_size": 2925,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2714,
+								2714
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_mark_style": "outline",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2
+						},
+						"translation.x": 0.0,
+						"translation.y": 1341.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "lib/extjs/two-trees.js",
+					"settings":
+					{
+						"buffer_size": 1513,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								818,
+								818
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_mark_style": "outline",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 177.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 35.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 125.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"two",
+				"lib/extjs/two-trees.js"
+			],
+			[
+				"pl",
+				"playground.html"
+			],
+			[
+				"game/",
+				"src/game/main.coffee"
+			],
+			[
+				"css",
+				"style.css"
+			],
+			[
+				"plan",
+				"lib/planets/planetarium.coffee"
+			],
+			[
+				"",
+				"index.html"
+			],
+			[
+				"le",
+				"src/game/level.coffee"
+			],
+			[
+				"html",
+				"playground.html"
+			],
+			[
+				".",
+				"todo.md"
+			],
+			[
+				"un",
+				"untitled"
+			],
+			[
+				"main",
+				"src/game/main.coffee"
+			],
+			[
+				".coffee",
+				"src/game/main.coffee"
+			],
+			[
+				"g",
+				"Gruntfile.js"
+			],
+			[
+				".coff",
+				"app/scripts/game/app.coffee"
+			],
+			[
+				"app",
+				"app/scripts/app.js"
+			],
+			[
+				"ma",
+				"app/scripts/main.js"
+			],
+			[
+				"main.js",
+				"app/scripts/main.js"
+			],
+			[
+				"inde",
+				"app/index.html"
+			],
+			[
+				"gr",
+				"Gruntfile.js"
+			],
+			[
+				"pack",
+				"package.json"
+			],
+			[
+				"pla",
+				"app/playground.html"
+			],
+			[
+				"main.co",
+				"app/scripts/game/main.coffee"
+			],
+			[
+				"cake",
+				"cakefile"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 217.0,
+	"status_bar_visible": true
+}
