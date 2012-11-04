@@ -183,6 +183,7 @@ class CanSeeAgentCondition extends Task
     return TaskStatus.SUCCESS
 
   blocked: (x, y) ->
+    map.addDebugLine @agent.x, @agent.y, x, y, 'rgb(0,0,255)'
     return level.getMap().tiles[y][x] is 0
 
 # ---- agent #2 ----

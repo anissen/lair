@@ -24,25 +24,25 @@ class Level
     height: 10
     waypoints:
       'W1':
-        x: 9
+        x: 10
         y: 1
       'W2':
         x: 1
         y: 1
       'W3':
-        x: 7
+        x: 8
         y: 3
       'W4':
         x: 3
         y: 3
     tiles: [
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,1,1,1,1,1,1,1,1,1,0,0,0,0,0],
-        [0,1,0,0,0,1,0,0,0,1,0,0,0,0,0],
-        [0,1,0,1,1,1,1,1,0,1,1,1,1,1,2],
-        [0,1,0,0,0,0,0,0,0,1,0,0,0,0,0],
-        [0,1,1,1,1,1,1,1,1,1,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0],
+        [0,1,0,0,0,1,0,0,0,0,1,0,0,0,0,0],
+        [0,1,0,1,1,1,1,1,1,0,1,1,1,1,1,2],
+        [0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0],
+        [0,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
     ]
     start:
       x: 12
@@ -70,6 +70,7 @@ class Map
   init: (@context, @level) ->
     @gridSize = 60
     @goalReached = false
+    @debugLines = []
     #console.log 'Map initialized'
 
   draw: ->
@@ -78,6 +79,13 @@ class Map
     @drawWaypoints()
     @drawGrid()
     @drawAgent agent for agent in @level.agents
+    @drawDebugLines()
+
+  addDebugLine: (x0, y0, x1, y1, color) ->
+    @debugLines.push {x0: x0, x1: x1, y0: y0, y1: y1, color: color}
+
+  clearDebugLines: () ->
+    @debugLines = []
 
   update: ->
     return if @goalReached
@@ -129,6 +137,14 @@ class Map
     @context.textBaseline = "middle"
     @context.fillText agent.text, 0, 0
     @context.restore()
+
+  drawDebugLines: () ->
+    for line in @debugLines
+      @context.strokeStyle = line.color
+      @context.beginPath()
+      @context.moveTo (line.x0 + 0.5) * @gridSize, (line.y0 + 0.5) * @gridSize
+      @context.lineTo (line.x1 + 0.5) * @gridSize, (line.y1 + 0.5) * @gridSize
+      @context.stroke()
 
   drawBlocks: ->
     blocks = @level.getMap().blocks
