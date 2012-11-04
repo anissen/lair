@@ -20,8 +20,8 @@ class Level
   getWaypointPosition: (waypointId) ->
     @getMap().waypoints[waypointId]
   getMap: ->
-    width: 10
-    height: 10
+    width: 16
+    height: 7
     waypoints:
       'W1':
         x: 10
@@ -64,6 +64,7 @@ class Level
 #level = new Level()
 #loadMap level.getMap()
 
+
 class Map
   constuctor: ->
 
@@ -77,7 +78,45 @@ class Map
     @agentImage.src = 'images/agent.png'
     #console.log 'Map initialized'
 
+    canvas = document.getElementById 'canvas'
+    @stage = new createjs.Stage canvas
+
+    #bmp = new createjs.Bitmap @robotImage
+    #@stage.addChild bmp
+
+    createjs.Ticker.setFPS 30
+    createjs.Ticker.addListener window
+
+    @tiles = []
+    tilesX = @level.getMap().width
+    tilesY = @level.getMap().height
+    tileMargin = 0.02
+
+    background = new createjs.Shape()
+    background.graphics.beginFill(createjs.Graphics.getRGB(0,0,0)).drawRoundRect(tileMargin, tileMargin, tilesX - tileMargin * 2, tilesY - tileMargin * 2, 0.1)
+    @stage.addChild background
+
+    for x in [0...tilesX]
+      @tiles.push new Array(tilesY)
+      for y in [0...tilesY]
+        tileType = level.getMap().tiles[y][x]
+        tile = new createjs.Shape()
+        @stage.addChild tile
+        tile.x = x
+        tile.y = y
+        tile.graphics.beginFill(createjs.Graphics.getRGB(tileType * 100,0,y*20)).drawRoundRect(tileMargin, tileMargin, 1 - tileMargin * 2, 1 - tileMargin * 2, 0.1)
+        tile.alpha = 1.0
+        @tiles[x][y] = tile
+
+    @stage.scaleX = 50
+    @stage.scaleY = 50
+    @stage.update()
+
+  tick: ->
+    @stage.update()
+
   draw: ->
+    return
     @context.clearRect 0, 0, @context.canvas.width, @context.canvas.height
     @drawTiles()
     @drawWaypoints()
@@ -218,8 +257,6 @@ class Map
   getPoint: (obj) ->
     x: (obj.x + 0.5) * @gridSize
     y: (obj.y + 0.5) * @gridSize
-
-
 
 
 window.Agent = Agent
