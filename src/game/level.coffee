@@ -1,7 +1,7 @@
 
 class Agent
   constructor: ->
-  init: (@x = 0, @y = 0, @color = 0, @rotation = 0, @size = 50, @text = 'Agent') ->
+  init: (@x = 0, @y = 0, @color = 0, @rotation = 0, @size = 50, @text = 'Agent', @type = 'Robot') ->
     #console.log 'Agent initialized'
   setBehavior: (@behavior) ->
   update: ->
@@ -39,9 +39,9 @@ class Level
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0],
         [0,1,0,0,0,1,0,0,0,0,1,0,0,0,0,0],
-        [0,1,0,1,1,1,1,1,1,0,1,1,1,1,1,2],
-        [0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0],
-        [0,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0],
+        [0,0,0,1,1,1,1,1,1,0,1,1,1,1,1,2],
+        [0,3,1,1,0,0,0,0,0,0,1,0,0,0,0,0],
+        [0,1,1,1,0,1,1,1,1,1,1,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
     ]
     start:
@@ -71,6 +71,10 @@ class Map
     @gridSize = 60
     @goalReached = false
     @debugLines = []
+    @robotImage = new Image()
+    @robotImage.src = 'images/terminator.png'
+    @agentImage = new Image()
+    @agentImage.src = 'images/agent.png'
     #console.log 'Map initialized'
 
   draw: ->
@@ -122,20 +126,24 @@ class Map
     @context.translate pos.x, pos.y
     @context.save()
 
-    rotDegrees = Math.floor(agent.rotation)
-    rotRadians = rotDegrees * (Math.PI / 180)
-    @context.rotate rotRadians
+    #rotDegrees = Math.floor(agent.rotation)
+    #rotRadians = rotDegrees * (Math.PI / 180)
+    #@context.rotate rotRadians
 
-    colorIndex = Math.floor(agent.color)
-    @context.fillStyle = "rgb(" + colorIndex + ", 0, " + (255 - colorIndex) + ")"
-    @context.fillRect -agent.size / 2, -agent.size / 2, agent.size, agent.size
+    #colorIndex = Math.floor(agent.color)
+    #@context.fillStyle = "rgb(" + colorIndex + ", 0, " + (255 - colorIndex) + ")"
+    #@context.fillRect -agent.size / 2, -agent.size / 2, agent.size, agent.size
+
+    image = if agent.type is 'Robot' then @robotImage else @agentImage
+    @context.drawImage image, -agent.size / 2, -agent.size / 2
 
     @context.restore()
 
-    @context.fillStyle = "rgb(" + (255 - colorIndex) + ", 255, " + colorIndex + ")"
+    #@context.fillStyle = "rgb(" + (255 - colorIndex) + ", 255, " + colorIndex + ")"
+    @context.fillStyle = "rgb(0, 0, 0)"
     @context.textAlign = "center"
     @context.textBaseline = "middle"
-    @context.fillText agent.text, 0, 0
+    @context.fillText agent.text, 0, agent.size / 2
     @context.restore()
 
   drawDebugLines: () ->
@@ -167,7 +175,13 @@ class Map
             tileColor = 'rgb(220, 220, 220)'
           when 2
             tileColor = 'rgb(40, 80, 160)'
-        @drawTile tile, tileColor
+          when 3
+            img = new Image()
+            img.src = 'images/terminal.png'
+            @context.drawImage img, (tile.x + 1) * @gridSize, (tile.y + 1) * @gridSize
+
+        if tileType < 3
+          @drawTile tile, tileColor
         x++
       y++
 

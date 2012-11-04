@@ -48,7 +48,7 @@ waypoints = level.getMap().waypoints
 
 
 # ---- agent #1 ----
-###
+
 agent = new window.Agent
 root = new Sequence()
 for waypointId, waypoint of waypoints
@@ -61,9 +61,10 @@ for waypointId, waypoint of waypoints
 
 agentStart = level.getMap().start
 agent.init agentStart.x, agentStart.y
+agent.type = 'Agent'
 agent.setBehavior root
 level.addAgent agent
-###
+
 
 ###
 acceptableTiles = [1]
