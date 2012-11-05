@@ -20,7 +20,7 @@ class Level
   getWaypointPosition: (waypointId) ->
     @getMap().waypoints[waypointId]
   getMap: ->
-    width: 16
+    width: 18
     height: 7
     waypoints:
       'W1':
@@ -36,16 +36,16 @@ class Level
         x: 3
         y: 3
     tiles: [
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0],
-        [0,1,0,0,0,1,0,0,0,0,1,0,0,0,0,0],
-        [0,0,0,1,1,1,1,1,1,0,1,1,1,1,1,2],
-        [0,3,1,1,0,0,0,0,0,0,1,0,0,0,0,0],
-        [0,1,1,1,0,1,1,1,1,1,1,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0],
+        [0,1,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0],
+        [0,0,0,1,1,1,1,1,1,0,1,1,1,1,1,2,0,0],
+        [0,3,1,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0],
+        [0,1,1,1,0,1,1,1,1,1,1,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
     ]
     start:
-      x: 12
+      x: 16
       y: 3
     goals: [
       (agent) =>
@@ -92,9 +92,9 @@ class Map
     tilesY = @level.getMap().height
     tileMargin = 0.02
 
-    background = new createjs.Shape()
-    background.graphics.beginFill(createjs.Graphics.getRGB(0,0,0)).drawRoundRect(tileMargin, tileMargin, tilesX - tileMargin * 2, tilesY - tileMargin * 2, 0.1)
-    @stage.addChild background
+    #background = new createjs.Shape()
+    #background.graphics.beginFill(createjs.Graphics.getRGB(0,0,0)).drawRoundRect(tileMargin, tileMargin, tilesX - tileMargin * 2, tilesY - tileMargin * 2, 0.1)
+    #@stage.addChild background
 
     for x in [0...tilesX]
       @tiles.push new Array(tilesY)
@@ -104,15 +104,40 @@ class Map
         @stage.addChild tile
         tile.x = x
         tile.y = y
-        tile.graphics.beginFill(createjs.Graphics.getRGB(tileType * 100,0,y*20)).drawRoundRect(tileMargin, tileMargin, 1 - tileMargin * 2, 1 - tileMargin * 2, 0.1)
+        tile.graphics.beginFill(createjs.Graphics.getRGB(tileType * 100,0,y*20)).drawRoundRect(tileMargin, tileMargin, 1 - tileMargin * 2, 1 - tileMargin * 2, 0.15)
         tile.alpha = 1.0
         @tiles[x][y] = tile
 
     @stage.scaleX = 50
     @stage.scaleY = 50
+    @stage.x = canvas.width / 2
+    @stage.y = canvas.height / 2
+    @stage.regX = 15.5
+    @stage.regY = 3.5
     @stage.update()
 
+    createjs.Ticker.addListener this #window
+
+    highlightTile = (x, y) ->
+      createjs.Tween.get(@tiles[x][y])
+        .to({alpha: 0.0}, 1000, createjs.Ease.cubicInOut)
+        .to({alpha: 1.0}, 1000, createjs.Ease.cubicInOut)
+
+    tween = createjs.Tween.get(@stage)
+              .wait(1000)
+              .to({scaleX: 200, scaleY: 200, regX: 1.5, regY: 4.5}, 3000, createjs.Ease.cubicInOut)
+              .call(highlightTile, [1,4], this)
+              .wait(2000)
+              .to({regX: 5.5, regY: 1.5}, 2000, createjs.Ease.cubicInOut)
+              .to({regX: 15.5, regY: 3.5}, 2000, createjs.Ease.cubicInOut)
+              .wait(1000)
+              .to({scaleX: 70, scaleY: 70, rotation: 360}, 5000, createjs.Ease.elasticOut)
+
+
+
   tick: ->
+    #@stage.scaleX *= 1.01
+    #@stage.scaleY *= 1.01
     @stage.update()
 
   draw: ->
