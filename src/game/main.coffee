@@ -4,30 +4,23 @@ Sequence = require('core/sequence')
 Task = require('core/task')
 TaskStatus = require('core/taskstatus')
 
+
 class TweenAction extends Task
   constructor: (obj, to, easing = TWEEN.Easing.Elastic.InOut, duration = 5000) ->
-    #console.log 'TweenAction initialized'
     @status = null
     @tween = new TWEEN.Tween(obj)
       .to(to, duration)
       .easing(easing)
-      #.onUpdate(@onUpdate)
       .onComplete(@onCompleted)
 
-  #onUpdate: =>
-  #  update()
-
   onCompleted: =>
-    #console.log 'TweenTask COMPLETED'
     @status = TaskStatus.SUCCESS
 
   deactivate: ->
-    #console.log 'TweenTask DEACTIVATED'
     @tween.stop()
     @status = TaskStatus.SUCCESS
 
   activate: ->
-    #console.log 'TweenTask ACTIVATED'
     @tween.start()
     @status = TaskStatus.RUNNING
 
@@ -65,29 +58,6 @@ agent.setBehavior root
 level.addAgent agent
 
 
-###
-acceptableTiles = [1]
-callback = (path) ->
-  if not path?
-    console.log "Path was not found."
-  else
-    console.log "Path was found:"
-    console.log path
-
-easyStar = new EasyStar.js acceptableTiles, callback
-
-easyStar.setGrid level.getMap().tiles
-
-startX = 12
-startY = 3
-endX = 2
-endY = 5
-easyStar.setPath startX, startY, endX, endY
-
-easyStar.calculate()
-###
-
-
 class MovePathTask extends Task
   constructor: (@agent, waypoint) ->
     acceptableTiles = [1]
@@ -96,22 +66,6 @@ class MovePathTask extends Task
     @waypointPos = level.getWaypointPosition waypoint
 
   execute: ->
-    ###
-    if @path?
-      @waitCount++
-      if @waitCount is 50
-        @waitCount = 0
-        if @pathCount is @path.length
-          @pathCount = 0
-          return TaskStatus.SUCCESS
-
-        p = @path[@pathCount]
-        @agent.x = p.x
-        @agent.y = p.y
-
-        @pathCount++
-    ###
-
     if @path?
       if @moveTween?
         tweenStatus = @moveTween.execute()
@@ -148,13 +102,8 @@ class MovePathTask extends Task
 class CanSeeAgentCondition extends Task
   constructor: (@agent, @agentToSee) ->
   execute: ->
-    #lineOfSight =
-    #  x: @agent.x + (@agent.x - @agentToSee.x)
-    #  y: @agent.y + (@agent.y - @agentToSee.y)
     status = @raytrace @agent.x, @agent.y, @agentToSee.x, @agentToSee.y
-    #console.log 'CanSeeAgentCondition: ' + status
     return status
-    #return TaskStatus.SUCCESS
 
   raytrace: (x0, y0, x1, y1) ->
     dx = Math.abs(x1 - x0)
@@ -183,26 +132,7 @@ class CanSeeAgentCondition extends Task
     return TaskStatus.SUCCESS
 
   blocked: (x, y) ->
-    #map.addDebugLine @agent.x, @agent.y, x, y, 'rgb(0,0,255)'
     return level.getMap().tiles[y][x] is 0
-
-# ---- agent #2 ----
-###
-agent2 = new window.Agent
-root2 = new Sequence()
-for waypointId, waypoint of waypoints
-  to =
-    x: waypoint.x
-    y: waypoint.y
-    rotation: Math.floor(Math.random() * 5) * 90
-    color: Math.random() * 255
-  root2.add new TweenAction agent2, to, TWEEN.Easing.Elastic.InOut, 4000
-root2.add new MovePathTask agent2, 12, 3, 2, 5
-
-agent2.init 13, 3
-agent2.setBehavior root2
-level.addAgent agent2
-###
 
 
 agent1 = new window.Agent
@@ -218,15 +148,6 @@ level.addAgent agent2
 
 map.init context, level
 
-###
-run = ->
-  #root.execute()
-  map.update()
-  map.draw()
-  requestAnimationFrame run
-
-run()
-###
 
 printTree = (node, indent) ->
   indent += "-"
