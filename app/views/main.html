@@ -1,9 +1,81 @@
-<div class="hero-unit">
-  <h1>Cheerio!</h1>
-  <p>You now have</p>
-  <ul>
-      <li ng-repeat="thing in awesomeThings">{{thing}}</li>
-  </ul>
-  <p>installed.</p>
-  <h3>Enjoy coding! - Yeoman</h3>
-</div>
+<section id="example">
+  <div class="page-header">
+    <h1>Lair</h1>
+    <!--
+    <div style="position: relative; height: 512px;">
+      <img src="http://cdn1.iconfinder.com/data/icons/imod/512/Hardware/iMac%20off.png" alt="" />
+      <div style="position: relative; left: 35px; top: -500px; height: 285px; width: 440px;">
+        <h3 class="briefing">The Mission</h3>
+        <p class="briefing">The Agency are powerless to prevent my evil plans!</p>
+        <p class="briefing">That is, unless their agent reaches the computer terminal. I store all my evil schemes on that computer, you see.</p>
+        <h3 class="briefing">Objectives</h3>
+        <ul>
+          <li class="briefing">* Stop the agent before he reaches the computer terminal</li>
+        <ul>
+        <a href="#" id="accept-mission-btn" class="btn btn-primary hide pull-right" style="position: relative; top: 70px;">Accept mission</a>
+      </div>
+    </div>
+  -->
+  </div>
+
+  <div class="row">
+    <div class="span12 well well-small">
+      <h4>Map Overview</h4>
+      <canvas id="canvas" width="1140px" height="420px"></canvas>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span12 well well-small">
+
+      <div class="row-fluid">
+        <div class="span4">
+          <h4>Behavior Library</h4>
+          <div id="library-tree"></div>
+        </div>
+
+        <div class="span4">
+          <h4>Behavior Tree <a id="assign-behavior" href="#" class="btn btn-primary btn-mini pull-right">Assign behavior</a></h4>
+          <div id="behavior-tree"></div>
+        </div>
+
+        <div class="span4">
+          <h4>Properties</h4>
+          <div id="property-grid"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<!-- TODO: Consider including scripts in controller instead of in the view -->
+
+<script src="scripts/vendor/jquerytypewriter.js"></script>
+
+<script src="scripts/vendor/createjs/easeljs.min.js"></script>
+<script src="scripts/vendor/createjs/tweenjs.min.js"></script>
+
+<script src="scripts/vendor/easystar.min.js"></script>
+<script src="scripts/vendor/behave.js"></script>
+
+<script src="scripts/vendor/Tween.js"></script>
+
+<script src="scripts/game/level.js"></script>
+<script src="scripts/game/main.js"></script>
+
+<!-- ExtJS -->
+<script src="scripts/vendor/extjs/ext-all.js"></script>
+<script src="scripts/vendor/extjs/two-trees.js"></script>
+
+<!--
+<script type="text/javascript">
+  $('.briefing').typewrite({
+    'delay': 40, //time in ms between each letter
+    'extra_char': '&#9608;', //"cursor" character to append after each display
+    'trim': true, // Trim the string to type (Default: false, does not trim)
+    'callback': function () { $('#accept-mission-btn').slideDown('slow'); } // if exists, called after all effects have finished
+  });
+</script>
+-->

@@ -21,6 +21,10 @@ module.exports = function( grunt ) {
         files: {
           'app/scripts/*.js': 'app/scripts/**/*.coffee',
           'test/spec/*.js': 'test/spec/**/*.coffee'
+        },
+        options: {
+          basePath: 'app/scripts',
+          bare: true
         }
       }
     },
