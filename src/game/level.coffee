@@ -1,11 +1,20 @@
 
 class Agent
   constructor: ->
-  init: (@x = 0, @y = 0, @color = 0, @rotation = 0, @size = 50, @text = 'Agent', @type = 'Robot') ->
+  init: (@x = 0, @y = 0, @color = 0, @rotation = 0, @size = 50, @text = 'Agent', @type = 'Robot', @imageSrc = 'terminator.png') ->
     #console.log 'Agent initialized'
+    tempImage = new Image()
+    tempImage.src = 'images/' + @imageSrc
+
+    @image = new createjs.Bitmap tempImage
+    @image.scaleX = 0.015
+    @image.scaleY = 0.015
+
   setBehavior: (@behavior) ->
   update: ->
     @behavior?.execute()
+    @image.x = @x + 0.2
+    @image.y = @y + 0.1
 
 
 class Level
@@ -71,18 +80,25 @@ class Map
   init: (@context, @level) ->
     @gridSize = 60
     @goalReached = false
-    @debugLines = []
+    #@debugLines = []
+
+    ###
     @robotImage = new Image()
     @robotImage.src = 'images/terminator.png'
     @agentImage = new Image()
     @agentImage.src = 'images/agent.png'
+    ###
     #console.log 'Map initialized'
 
     canvas = document.getElementById 'canvas'
     @stage = new createjs.Stage canvas
 
-    #bmp = new createjs.Bitmap @robotImage
-    #@stage.addChild bmp
+    # enable touch interactions if supported on the current device:
+    createjs.Touch.enable @stage
+
+    # enabled mouse over / out events
+    @stage.enableMouseOver 10
+    @stage.mouseMoveOutside = true # keep tracking the mouse even when it leaves the canvas
 
     createjs.Ticker.setFPS 30
     createjs.Ticker.addListener window
@@ -99,7 +115,7 @@ class Map
     for x in [0...tilesX]
       @tiles.push new Array(tilesY)
       for y in [0...tilesY]
-        tileType = level.getMap().tiles[y][x]
+        tileType = @level.getMap().tiles[y][x]
         tile = new createjs.Shape()
         @stage.addChild tile
         tile.x = x
@@ -108,8 +124,28 @@ class Map
         tile.alpha = 1.0
         @tiles[x][y] = tile
 
-    @stage.scaleX = 50
-    @stage.scaleY = 50
+
+    for agent in @level.agents
+      @stage.addChild agent.image
+
+    ###
+    @robot = new createjs.Bitmap @robotImage
+    @robot.scaleX = 0.01
+    @robot.scaleY = 0.01
+    @stage.addChild @robot
+    ###
+
+    @stage.onPress = (evt) =>
+      offset =
+        x: @stage.x - evt.stageX
+        y: @stage.y - evt.stageY
+
+      evt.onMouseMove = (ev) =>
+        @stage.x = ev.stageX + offset.x
+        @stage.y = ev.stageY + offset.y
+
+    @stage.scaleX = 70
+    @stage.scaleY = 70
     @stage.x = canvas.width / 2
     @stage.y = canvas.height / 2
     @stage.regX = 15.5
@@ -118,10 +154,11 @@ class Map
 
     createjs.Ticker.addListener this #window
 
+    ###
     highlightTile = (x, y) ->
       createjs.Tween.get(@tiles[x][y])
-        .to({alpha: 0.0}, 1000, createjs.Ease.cubicInOut)
-        .to({alpha: 1.0}, 1000, createjs.Ease.cubicInOut)
+        .to({rotation: 180}, 1000, createjs.Ease.cubicInOut)
+        .to({alpha: 0}, 1000, createjs.Ease.cubicInOut)
 
     tween = createjs.Tween.get(@stage)
               .wait(1000)
@@ -132,12 +169,16 @@ class Map
               .to({regX: 15.5, regY: 3.5}, 2000, createjs.Ease.cubicInOut)
               .wait(1000)
               .to({scaleX: 70, scaleY: 70, rotation: 360}, 5000, createjs.Ease.elasticOut)
-
+    ###
 
 
   tick: ->
-    #@stage.scaleX *= 1.01
-    #@stage.scaleY *= 1.01
+    #@robot.x = @level.agents[0].x
+    #@robot.y = @level.agents[0].y
+
+    for agent in @level.agents
+      agent.update()
+
     @stage.update()
 
   draw: ->
@@ -198,8 +239,10 @@ class Map
     #@context.fillStyle = "rgb(" + colorIndex + ", 0, " + (255 - colorIndex) + ")"
     #@context.fillRect -agent.size / 2, -agent.size / 2, agent.size, agent.size
 
-    image = if agent.type is 'Robot' then @robotImage else @agentImage
-    @context.drawImage image, -agent.size / 2, -agent.size / 2
+
+    #image = if agent.type is 'Robot' then @robotImage else @agentImage
+    #@context.drawImage image, -agent.size / 2, -agent.size / 2
+
 
     @context.restore()
 

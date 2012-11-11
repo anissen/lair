@@ -42,7 +42,6 @@ level = new window.Level
 map = new window.Map
 
 level.init()
-map.init context, level
 
 waypoints = level.getMap().waypoints
 
@@ -153,7 +152,7 @@ class CanSeeAgentCondition extends Task
     #  x: @agent.x + (@agent.x - @agentToSee.x)
     #  y: @agent.y + (@agent.y - @agentToSee.y)
     status = @raytrace @agent.x, @agent.y, @agentToSee.x, @agentToSee.y
-    console.log 'CanSeeAgentCondition: ' + status
+    #console.log 'CanSeeAgentCondition: ' + status
     return status
     #return TaskStatus.SUCCESS
 
@@ -184,7 +183,7 @@ class CanSeeAgentCondition extends Task
     return TaskStatus.SUCCESS
 
   blocked: (x, y) ->
-    map.addDebugLine @agent.x, @agent.y, x, y, 'rgb(0,0,255)'
+    #map.addDebugLine @agent.x, @agent.y, x, y, 'rgb(0,0,255)'
     return level.getMap().tiles[y][x] is 0
 
 # ---- agent #2 ----
@@ -217,6 +216,9 @@ agent2.init 5, 3
 agent2.text = 'Agent 2'
 level.addAgent agent2
 
+map.init context, level
+
+###
 run = ->
   #root.execute()
   map.update()
@@ -224,6 +226,7 @@ run = ->
   requestAnimationFrame run
 
 run()
+###
 
 printTree = (node, indent) ->
   indent += "-"

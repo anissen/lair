@@ -4,6 +4,54 @@
 		"selected_items":
 		[
 			[
+				"ag",
+				"agentImage"
+			],
+			[
+				"age",
+				"agentToSee"
+			],
+			[
+				"tw",
+				"tweenStatus"
+			],
+			[
+				"Task",
+				"TaskStatus"
+			],
+			[
+				"path",
+				"pathCount"
+			],
+			[
+				"wa",
+				"waypointPos"
+			],
+			[
+				"Pa",
+				"MovePathTask"
+			],
+			[
+				"Se",
+				"SequenceComposite"
+			],
+			[
+				"ass",
+				"assignBehaviorToAgents"
+			],
+			[
+				"way",
+				"waypoint"
+			],
+			[
+				"beh",
+				"behaviorTree"
+			],
+			[
+				"proper",
+				"propertyGrid"
+			],
+			[
 				"grid",
 				"gridSize"
 			],
@@ -32,10 +80,6 @@
 				"directions"
 			],
 			[
-				"tw",
-				"tweenAction"
-			],
-			[
 				"Tas",
 				"TaskStatus"
 			],
@@ -60,10 +104,6 @@
 				"drawTile"
 			],
 			[
-				"way",
-				"waypoints"
-			],
-			[
 				"gt",
 				"getPoint"
 			],
@@ -82,10 +122,6 @@
 			[
 				"draw",
 				"drawBlocks"
-			],
-			[
-				"wa",
-				"waypointId"
 			],
 			[
 				"Twe",
@@ -123,37 +159,21 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "src/game/main.coffee",
-			"settings":
-			{
-				"buffer_size": 3654,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "playground.html",
-			"settings":
-			{
-				"buffer_size": 2925,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "lib/extjs/two-trees.js",
-			"settings":
-			{
-				"buffer_size": 1513,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 67.0,
+		"height": 127.0,
 		"selected_items":
 		[
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
 			[
 				"pyth",
 				"Set Syntax: Python"
@@ -220,6 +240,15 @@
 	},
 	"file_history":
 	[
+		"/Users/nissen/code/lair/lair.sublime-project",
+		"/Users/nissen/code/lair/lib/extjs/two-trees.js",
+		"/Users/nissen/code/lair/src/game/main.coffee",
+		"/Users/nissen/code/lair/lib/jquerytypewriter.js",
+		"/Users/nissen/code/lair/playground.html",
+		"/Users/nissen/code/lair/src/game/level.coffee",
+		"/Users/nissen/code/mongodb-course/hw2/grades.js",
+		"/Users/nissen/code/behave/src/core/compositetask.coffee",
+		"/Users/nissen/code/behave/src/core/sequence.coffee",
 		"/Users/nissen/Documents/elements.txt",
 		"/Users/nissen/code/mongodb-course/bottle_server.py",
 		"/Users/nissen/code/amaze/maze.html",
@@ -231,11 +260,7 @@
 		"/Users/nissen/code/planetarium/lib/planets/planetarium.coffee",
 		"/Users/nissen/Documents/CV-game/ansøgning/ansoegning.tex",
 		"/Users/nissen/Documents/CV-game/cv.tex",
-		"/Users/nissen/code/lair/lib/extjs/two-trees.js",
-		"/Users/nissen/code/lair/src/game/level.coffee",
-		"/Users/nissen/code/lair/src/game/main.coffee",
 		"/Users/nissen/code/lair/roadmap.todo",
-		"/Users/nissen/code/lair/playground.html",
 		"/Users/nissen/Library/Application Support/Sublime Text 2/Packages/User/CoffeeScript/new-behave-task.sublime-snippet",
 		"/Users/nissen/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 		"/Users/nissen/code/lair/testing-file.html",
@@ -281,8 +306,6 @@
 		"/Users/nissen/code/behave/test/core/sequence-test.coffee",
 		"/Users/nissen/code/behave/test/misc-test.coffee",
 		"/Users/nissen/code/behave/cakefile",
-		"/Users/nissen/code/behave/src/core/sequence.coffee",
-		"/Users/nissen/code/behave/src/core/compositetask.coffee",
 		"/Users/nissen/code/behave/src/core/callbacktask.coffee",
 		"/Users/nissen/code/behave/test/core/task-test.coffee",
 		"/Users/nissen/code/behave/lib/behave.js",
@@ -309,6 +332,28 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"2",
+			"stage",
+			"ball",
+			"ref",
+			";",
+			"goodAgentImage",
+			"#ff00de",
+			"h2",
+			"h3",
+			"h4",
+			"h3",
+			"li",
+			"array",
+			"+ 0.5",
+			";",
+			"int ",
+			"x",
+			"20",
+			"\"",
+			"span3",
+			"{\n                    text: 'Move to waypoint!',\n                    leaf: true,\n                    type: 'MoveToWaypointAction',\n                    settings: {\n                      waypoint: 'W1',\n                      speed: 1.0\n                    }\n                },",
+			"id",
 			"console",
 			"10",
 			"\"",
@@ -399,349 +444,8 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "src/game/main.coffee",
-					"settings":
-					{
-						"buffer_size": 3654,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								454,
-								454
-							]
-						],
-						"settings":
-						{
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME"
-							],
-							"csslint_options":
-							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"star-property-hack": "warning",
-								"text-indent": "warning",
-								"underscore-property-hack": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
-							},
-							"gjslint_ignore":
-							[
-								110.0
-							],
-							"gjslint_options":
-							[
-							],
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": true,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8": true,
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"perl_linter": "perlcritic",
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"sublimelinter": true,
-							"sublimelinter_delay": 2.0,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": false,
-							"sublimelinter_mark_style": "outline",
-							"sublimelinter_notes": false,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"Python Django": "python",
-								"Ruby on Rails": "ruby"
-							},
-							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "playground.html",
-					"settings":
-					{
-						"buffer_size": 2925,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2714,
-								2714
-							]
-						],
-						"settings":
-						{
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME"
-							],
-							"csslint_options":
-							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"star-property-hack": "warning",
-								"text-indent": "warning",
-								"underscore-property-hack": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
-							},
-							"gjslint_ignore":
-							[
-								110.0
-							],
-							"gjslint_options":
-							[
-							],
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": true,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8": true,
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"perl_linter": "perlcritic",
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"sublimelinter": true,
-							"sublimelinter_delay": 2.0,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": false,
-							"sublimelinter_mark_style": "outline",
-							"sublimelinter_notes": false,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"Python Django": "python",
-								"Ruby on Rails": "ruby"
-							},
-							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2
-						},
-						"translation.x": 0.0,
-						"translation.y": 1341.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "lib/extjs/two-trees.js",
-					"settings":
-					{
-						"buffer_size": 1513,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								818,
-								818
-							]
-						],
-						"settings":
-						{
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME"
-							],
-							"csslint_options":
-							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"star-property-hack": "warning",
-								"text-indent": "warning",
-								"underscore-property-hack": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
-							},
-							"gjslint_ignore":
-							[
-								110.0
-							],
-							"gjslint_options":
-							[
-							],
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": true,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8": true,
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"perl_linter": "perlcritic",
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"sublimelinter": true,
-							"sublimelinter_delay": 2.0,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": false,
-							"sublimelinter_mark_style": "outline",
-							"sublimelinter_notes": false,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"Python Django": "python",
-								"Ruby on Rails": "ruby"
-							},
-							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 177.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -790,6 +494,18 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"jqu",
+				"lib/jquerytypewriter.js"
+			],
+			[
+				"level",
+				"src/game/level.coffee"
+			],
+			[
+				"pro",
+				"lair.sublime-project"
+			],
 			[
 				"two",
 				"lib/extjs/two-trees.js"
