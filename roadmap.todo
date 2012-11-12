@@ -2,14 +2,11 @@
 Lair roadmap
 
 Short term:
- ✔ Make a simple goal system @done (30-09-12 18:58)
- ✔ Put on github @done (30-09-12 18:54)
+ ☐ Make a simple goal system
  ☐ Make a simple hardcoded level
    ☐ Win by spotting an enemy agent
    ☐ Add a Parallel task to be able to spot the enemy between waypoints
- ☐ Put in a tree component
  ☐ Change the goal system into a behavior tree based system
- ☐ Include behave (and other libraries?) as a yeoman component instead
  ☐ Change app.js and controllers/main.js to coffeescript
 
 Long term:
