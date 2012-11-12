@@ -4,3 +4,7 @@ dist
 *.sublime-workspace
 grunt.js
 *.DS_Store
+
+app/scripts/*.js
+app/scripts/controllers/*.js
+app/scripts/game/*.js

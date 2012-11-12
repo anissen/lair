@@ -2,10 +2,7 @@
 class Agent
   constructor: ->
   init: (@x = 0, @y = 0, @color = 0, @rotation = 0, @size = 50, @text = 'Agent', @type = 'Robot', @imageSrc = 'terminator.png') ->
-    tempImage = new Image()
-    tempImage.src = 'resources/images/' + @imageSrc
-
-    @image = new createjs.Bitmap tempImage
+    @image = new createjs.Bitmap 'resources/images/' + @imageSrc
     @image.scaleX = 0.015
     @image.scaleY = 0.015
 
