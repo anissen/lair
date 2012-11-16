@@ -1,5 +1,4 @@
 'use strict'
 
-lairApp.controller 'MainCtrl', ($scope) ->
+HomeCtrl = ($scope) ->
   $scope.awesomeThings = ['HTML5 Boilerplate', 'AngularJS', 'Testacular']
-

@@ -8,8 +8,8 @@ class MoveTask extends Task
     # OR
     # create a new function that takes the time
 
-    
+
 
     TaskStatus.SUCCESS
 
-module.exports = Sequence
+module.exports = MoveTask
