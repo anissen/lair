@@ -20,9 +20,17 @@ Ext.onReady ->
         leaf: false
         type: "SequenceComposite"
       ,
+        text: "Sequence"
+        leaf: false
+        type: "SequenceComposite"
+      ,
         text: "Selector"
         leaf: false
         type: "SelectorComposite"
+      ,
+        text: "Parallel"
+        leaf: false
+        type: "ParallelComposite"
       ,
         text: "Move to waypoint!"
         leaf: true
@@ -58,6 +66,18 @@ Ext.onReady ->
         settings:
           viewDistance: 5.0
           agentId: 0
+      ,
+        text: "Print!"
+        leaf: true
+        type: "PrintAction"
+        settings:
+          text: 'Hello World!'
+      ,
+        text: "Print!"
+        leaf: true
+        type: "PrintAction"
+        settings:
+          text: 'Hello Earth!'
       ]
 
     rootVisible: false

@@ -2,8 +2,20 @@
 CallbackTask = require('core/callbacktask')
 Sequence = require('core/sequence')
 Task = require('core/task')
+CompositeTask = require('core/compositetask')
 TaskStatus = require('core/taskstatus')
 
+class Parallel extends CompositeTask
+  execute: ->
+    status = {}
+    for task in @tasks
+      taskStatus = task.execute()
+      status[taskStatus]++
+
+    return TaskStatus.ERROR if status[TaskStatus.ERROR] > 0
+    return TaskStatus.SUCCESS if status[TaskStatus.SUCCESS] is @tasks.length
+    return TaskStatus.RUNNING if status[TaskStatus.RUNNING] > 0
+    return TaskStatus.FAILURE
 
 class TweenAction extends Task
   constructor: (obj, to, easing = TWEEN.Easing.Elastic.InOut, duration = 5000) ->
@@ -40,7 +52,7 @@ waypoints = level.getMap().waypoints
 
 
 # ---- agent #1 ----
-
+###
 agent = new window.Agent
 root = new Sequence()
 for waypointId, waypoint of waypoints
@@ -56,7 +68,7 @@ agent.init agentStart.x, agentStart.y
 agent.type = 'Agent'
 agent.setBehavior root
 level.addAgent agent
-
+###
 
 class MovePathTask extends Task
   constructor: (@agent, waypoint) ->
@@ -166,12 +178,24 @@ generateBehaviorTree = (node, agent) ->
   settings = node.raw.settings
 
   switch node.raw.type
-    when 'Agent' or 'SequenceComposite'
+    when 'Agent'
       treeNode = new Sequence()
+    when 'SequenceComposite'
+      treeNode = new Sequence()
+    when 'ParallelComposite'
+      console.log 'Creating parallel'
+      treeNode = new Parallel()
+    when 'PrintAction'
+      treeNode = new CallbackTask ->
+        console.log 'PrintAction:', settings.text
+        TaskStatus.SUCCESS
     when 'MoveToWaypointAction'
       treeNode = new MovePathTask agent, settings.waypoint
     when 'CanSeeAgentCondition'
-      treeNode = new CanSeeAgentCondition agent, level.getAgent(settings.agentId)
+      agentToSee = level.getAgent(settings.agentId)
+      alert 'Invalid agentId' if not agentToSee?
+      alert 'Agent to see is the agent itself' if agent is agentToSee
+      treeNode = new CanSeeAgentCondition agent, agentToSee
     else
       throw new Error 'Unknown tree node type: "' + node.raw.type + '"'
 
@@ -180,8 +204,9 @@ generateBehaviorTree = (node, agent) ->
 
   treeNode
 
-$(document).ready ->
-  $('#assign-behavior').on 'click', ->
-    assignBehaviorToAgents behaviorTree.getRootNode()
+#$(document).ready ->
+$('#assign-behavior').on 'click', (evt) ->
+  evt.preventDefault()
+  assignBehaviorToAgents behaviorTree.getRootNode()
 
 
