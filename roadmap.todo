@@ -2,12 +2,30 @@
 Lair roadmap
 
 Short term:
+ ☐ Make a *very* simple hardcoded (tutorial) level
+     Objectives: Pick up one piece of trash, throw trash into dumpster
+     ☐ Add trash to level
+     ☐ Add dumpster to level
+     ☐ Add trash waypoint to level
+     ☐ Add dumpster waypoint to level
+     ☐ Add "pick-up trash" action
+     ☐ Add "throw trash into dumpster" action
+     ☐ Add goal task: 1/1 pieces of trash has been put into dumpster
+ ☐ Make a very simple hardcoded (tutorial) level
+     Objectives: Pick up two pieces of trash and throw them into the dumpster
+     ☐ Add two pieces of trash to level
+     ☐ New goal task: 2/2 pieces of trash has been put into dumpster
+ ☐ Make a simple hardcoded tutorial level
+     Objectives: The robot can now only carry one piece of trash at one time
+     ☐ Add "has maximum pieces of trash" condition
+ ☐ Next tutorial level: Multiple dumpsters, only one piece of trash fits in each dumpster
+ ☐ Next tutorial level: Sweep all the floor tiles (maybe?)
  ☐ Make a simple goal system
- ☐ Make a simple hardcoded level
+ ☐ Make a hardcoded level
    ☐ Win by spotting an enemy agent
    ☐ Add a Parallel task to be able to spot the enemy between waypoints
  ☐ Change the goal system into a behavior tree based system
- ☐ Change app.js and controllers/main.js to coffeescript
+ ✔ Change app.js and controllers/main.js to coffeescript @done (25-11-12 20:53)
 
 Long term:
  ☐ ?

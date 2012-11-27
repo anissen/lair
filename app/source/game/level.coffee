@@ -1,7 +1,7 @@
 
 class Agent
   constructor: ->
-  init: (@x = 0, @y = 0, @color = 0, @rotation = 0, @size = 50, @text = 'Agent', @type = 'Robot', @imageSrc = 'terminator.png') ->
+  init: (@x = 0, @y = 0, @text = 'Agent', @type = 'Robot', @imageSrc = 'terminator.png') ->
     @image = new createjs.Bitmap 'resources/images/' + @imageSrc
     @image.scaleX = 0.015
     @image.scaleY = 0.015
@@ -12,6 +12,23 @@ class Agent
     @image.x = @x + 0.2
     @image.y = @y + 0.1
 
+class Trash
+  constructor: ->
+  init: (x, y) ->
+    @image = new createjs.Bitmap 'resources/images/trash.png'
+    @image.scaleX = 0.015
+    @image.scaleY = 0.015
+    @image.x = x + 0.25
+    @image.y = y + 0.25
+
+class Dumpster
+  constructor: ->
+  init: (x, y) ->
+    @image = new createjs.Bitmap 'resources/images/trashcan-empty.png'
+    @image.scaleX = 0.006
+    @image.scaleY = 0.006
+    @image.x = x + 0.1
+    @image.y = y + 0.1
 
 class Level
   constructor: ->
@@ -25,6 +42,39 @@ class Level
   getWaypointPosition: (waypointId) ->
     @getMap().waypoints[waypointId]
   getMap: ->
+    width: 18
+    height: 7
+    waypoints:
+      'trash':
+        x: 1
+        y: 1
+      'dumpster':
+        x: 3
+        y: 1
+    objects:[
+      type: 'trash'
+      x: 1
+      y: 1
+    ,
+      type: 'dumpster'
+      x: 3
+      y: 1
+    ]
+    tiles: [
+        [0,0,0,0,0,0],
+        [0,1,0,1,1,1],
+        [0,1,0,0,1,0],
+        [0,1,1,1,1,0],
+        [0,0,0,0,0,0]
+    ]
+    start:
+      x: 5
+      y: 1
+    goals: [
+      (agent) =>
+        false
+    ]
+  getMapOld: ->
     width: 18
     height: 7
     waypoints:
@@ -83,8 +133,9 @@ class Map
     createjs.Ticker.setFPS 30
 
     @tiles = []
-    tilesX = @level.getMap().width
-    tilesY = @level.getMap().height
+    tilesX = @level.getMap().tiles[0].length
+    tilesY = @level.getMap().tiles.length
+    console.log tilesX, tilesY
     tileMargin = 0.02
 
     for x in [0...tilesX]
@@ -99,6 +150,18 @@ class Map
         tile.alpha = 1.0
         @tiles[x][y] = tile
 
+    for key, pos of @level.getMap().waypoints
+      @tiles[pos.x][pos.y].graphics.beginFill(createjs.Graphics.getRGB(100,255,y*20)).drawRoundRect(tileMargin, tileMargin, 1 - tileMargin * 2, 1 - tileMargin * 2, 0.15)
+
+    for obj in @level.getMap().objects
+      switch obj.type
+        when 'trash'
+          object = new Trash()
+        when 'dumpster'
+          object = new Dumpster()
+
+      object.init obj.x, obj.y
+      @stage.addChild object.image
 
     for agent in @level.agents
       @stage.addChild agent.image
@@ -116,8 +179,8 @@ class Map
     @stage.scaleY = 70
     @stage.x = canvas.width / 2
     @stage.y = canvas.height / 2
-    @stage.regX = 15.5
-    @stage.regY = 3.5
+    @stage.regX = tilesX / 2 #15.5
+    @stage.regY = tilesY / 2 #3.5
     @stage.update()
 
     createjs.Ticker.addListener this

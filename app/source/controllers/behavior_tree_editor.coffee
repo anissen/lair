@@ -36,16 +36,17 @@ Ext.onReady ->
         leaf: true
         type: "MoveToWaypointAction"
         settings:
-          waypoint: "W1"
+          waypoint: "trash"
           speed: 1.0
       ,
         text: "Move to waypoint!"
         leaf: true
         type: "MoveToWaypointAction"
         settings:
-          waypoint: "W2"
+          waypoint: "trash"
           speed: 1.0
-      ,
+      ]
+      ###,
         text: "Move to waypoint!"
         leaf: true
         type: "MoveToWaypointAction"
@@ -79,6 +80,8 @@ Ext.onReady ->
         settings:
           text: 'Hello Earth!'
       ]
+      ###
+
 
     rootVisible: false
     renderTo: "library-tree"

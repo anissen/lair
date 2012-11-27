@@ -70,26 +70,31 @@
 
 <script type="text/javascript">
 $(function(){
-    $.pnotify({
-        title: 'Regular Notice',
-        text: 'Check me out! I\'m a notice.'
-    });
+  $.pnotify({
+    title: 'I\'m an error',
+    text: 'Check me out! I\'m a transparent error.',
+    type: 'error',
+    opacity: .8
+  });
 
-    $.pnotify({
-        title: 'I\'m an error',
-        text: 'Check me out! I\'m a transparent error.',
-        type: 'error',
-        opacity: .8
-    });
+  $.pnotify({
+    title: 'I\'m an info',
+    text: 'Check me out! I\'m a click-through info.',
+    type: 'info',
+    nonblock: true,
+    nonblock_opacity: .4
+  });
 
-    $.pnotify({
-        title: 'I\'m an info',
-        text: 'Check me out! I\'m a click-through info.',
-        type: 'info',
-        nonblock: true,
-        nonblock_opacity: .4
-    });
+  $.pnotify({
+    title: 'Regular Notice',
+    text: 'Check me out! I\'m a notice.'
+  });
 
+  $.pnotify({
+    title: 'Success Notice',
+    text: 'Check me out! I\'m a success.',
+    type: 'success'
+  });
 });
 </script>
 

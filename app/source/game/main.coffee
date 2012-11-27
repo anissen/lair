@@ -148,17 +148,21 @@ class CanSeeAgentCondition extends Task
 
 
 agent1 = new window.Agent
-agent1.init 14, 3
-agent1.text = 'Agent 1'
-agent1.color = 100
+agent1.init level.getMap().start.x, level.getMap().start.y
+#agent1.text = 'Agent 1'
+#agent1.color = 100
 level.addAgent agent1
 
+###
 agent2 = new window.Agent
 agent2.init 5, 3
 agent2.text = 'Agent 2'
 level.addAgent agent2
+###
 
 map.init context, level
+
+console.log 'after main init'
 
 
 printTree = (node, indent) ->
