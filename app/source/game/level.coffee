@@ -150,9 +150,6 @@ class Map
         tile.alpha = 1.0
         @tiles[x][y] = tile
 
-    for key, pos of @level.getMap().waypoints
-      @tiles[pos.x][pos.y].graphics.beginFill(createjs.Graphics.getRGB(100,255,y*20)).drawRoundRect(tileMargin, tileMargin, 1 - tileMargin * 2, 1 - tileMargin * 2, 0.15)
-
     for obj in @level.getMap().objects
       switch obj.type
         when 'trash'
@@ -162,6 +159,20 @@ class Map
 
       object.init obj.x, obj.y
       @stage.addChild object.image
+
+
+    for key, pos of @level.getMap().waypoints
+      @tiles[pos.x][pos.y].graphics.beginFill(createjs.Graphics.getRGB(0,130,y*20)).drawRoundRect(tileMargin, tileMargin, 1 - tileMargin * 2, 1 - tileMargin * 2, 0.15)
+      ###
+      waypoint = new createjs.Bitmap 'resources/images/waypoint.png'
+      waypoint.scaleX = 0.012
+      waypoint.scaleY = 0.012
+      waypoint.x = pos.x + 0.1
+      waypoint.y = pos.y
+      waypoint.alpha = 0.6
+      @stage.addChild waypoint
+      ###
+
 
     for agent in @level.agents
       @stage.addChild agent.image
