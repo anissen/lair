@@ -91,10 +91,7 @@ class MovePathTask extends Task
       to =
         x: p.x
         y: p.y
-        rotation: Math.floor(Math.random() * 2) * 90
-        color: Math.random() * 255
-        size: 40 + Math.random() * 10
-      @moveTween = new TweenAction @agent, to, TWEEN.Easing.Quadratic.In, 200
+      @moveTween = new TweenAction @agent, to, TWEEN.Easing.Quadratic.InOut, 500
       @moveTween.activate()
 
     return TaskStatus.RUNNING
@@ -149,21 +146,9 @@ class CanSeeAgentCondition extends Task
 
 agent1 = new window.Agent
 agent1.init level.getMap().start.x, level.getMap().start.y
-#agent1.text = 'Agent 1'
-#agent1.color = 100
 level.addAgent agent1
 
-###
-agent2 = new window.Agent
-agent2.init 5, 3
-agent2.text = 'Agent 2'
-level.addAgent agent2
-###
-
 map.init context, level
-
-console.log 'after main init'
-
 
 printTree = (node, indent) ->
   indent += "-"
@@ -191,7 +176,13 @@ generateBehaviorTree = (node, agent) ->
       treeNode = new Parallel()
     when 'PrintAction'
       treeNode = new CallbackTask ->
-        console.log 'PrintAction:', settings.text
+        #console.log 'PrintAction:', settings.text
+        $.pnotify
+          title: 'PrintAction',
+          text: settings.text,
+          type: 'info',
+          nonblock: true,
+          nonblock_opacity: .4
         TaskStatus.SUCCESS
     when 'MoveToWaypointAction'
       treeNode = new MovePathTask agent, settings.waypoint
@@ -208,7 +199,6 @@ generateBehaviorTree = (node, agent) ->
 
   treeNode
 
-#$(document).ready ->
 $('#assign-behavior').on 'click', (evt) ->
   evt.preventDefault()
   assignBehaviorToAgents behaviorTree.getRootNode()

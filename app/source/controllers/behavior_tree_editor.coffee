@@ -16,6 +16,7 @@ Ext.onReady ->
       text: "Root"
       expanded: true
       children: [
+        ###
         text: "Sequence"
         leaf: false
         type: "SequenceComposite"
@@ -32,6 +33,7 @@ Ext.onReady ->
         leaf: false
         type: "ParallelComposite"
       ,
+        ###
         text: "Move to waypoint!"
         leaf: true
         type: "MoveToWaypointAction"
@@ -45,6 +47,12 @@ Ext.onReady ->
         settings:
           waypoint: "trash"
           speed: 1.0
+      ,
+        text: "Print!"
+        leaf: true
+        type: "PrintAction"
+        settings:
+          text: 'Hello World!'
       ]
       ###,
         text: "Move to waypoint!"
@@ -105,12 +113,14 @@ Ext.onReady ->
         agentId: 0
         allowDrag: false
         #icon: "http://www.iconfinder.com/ajax/download/png/?id=49398&s=16"
+        ###
       ,
         text: "Agent 2"
         type: "Agent"
         agentId: 1
         allowDrag: false
         #icon: "http://www.iconfinder.com/ajax/download/png/?id=49398&s=16"
+        ###
       ]
 
     listeners:

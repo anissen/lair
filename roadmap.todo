@@ -4,10 +4,11 @@ Lair roadmap
 Short term:
  ☐ Make a *very* simple hardcoded (tutorial) level
      Objectives: Pick up one piece of trash, throw trash into dumpster
-     ☐ Add trash to level
-     ☐ Add dumpster to level
-     ☐ Add trash waypoint to level
-     ☐ Add dumpster waypoint to level
+     ✔ Add trash to level @done (28-11-12 23:30)
+     ✔ Add dumpster to level @done (28-11-12 23:30)
+     ✔ Add trash waypoint to level @done (28-11-12 23:30)
+     ✔ Add dumpster waypoint to level @done (28-11-12 23:30)
+     ☐ Add list of available tasks to level
      ☐ Add "pick-up trash" action
      ☐ Add "throw trash into dumpster" action
      ☐ Add goal task: 1/1 pieces of trash has been put into dumpster

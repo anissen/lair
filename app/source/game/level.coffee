@@ -60,6 +60,11 @@ class Level
       x: 3
       y: 1
     ]
+    tasks: [
+      'MoveToWaypointAction',
+      'MoveToWaypointAction',
+      'PrintAction'
+    ]
     tiles: [
         [0,0,0,0,0,0],
         [0,1,0,1,1,1],
@@ -135,7 +140,6 @@ class Map
     @tiles = []
     tilesX = @level.getMap().tiles[0].length
     tilesY = @level.getMap().tiles.length
-    console.log tilesX, tilesY
     tileMargin = 0.02
 
     for x in [0...tilesX]
@@ -190,8 +194,8 @@ class Map
     @stage.scaleY = 70
     @stage.x = canvas.width / 2
     @stage.y = canvas.height / 2
-    @stage.regX = tilesX / 2 #15.5
-    @stage.regY = tilesY / 2 #3.5
+    @stage.regX = tilesX / 2
+    @stage.regY = tilesY / 2
     @stage.update()
 
     createjs.Ticker.addListener this
