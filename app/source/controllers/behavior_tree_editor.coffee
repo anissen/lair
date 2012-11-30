@@ -15,7 +15,7 @@ Ext.onReady ->
     root:
       text: "Root"
       expanded: true
-      children: [
+      children: []
         ###
         text: "Sequence"
         leaf: false
@@ -33,20 +33,17 @@ Ext.onReady ->
         leaf: false
         type: "ParallelComposite"
       ,
-        ###
         text: "Move to waypoint!"
         leaf: true
         type: "MoveToWaypointAction"
         settings:
           waypoint: "trash"
-          speed: 1.0
       ,
         text: "Move to waypoint!"
         leaf: true
         type: "MoveToWaypointAction"
         settings:
           waypoint: "trash"
-          speed: 1.0
       ,
         text: "Print!"
         leaf: true
@@ -54,7 +51,7 @@ Ext.onReady ->
         settings:
           text: 'Hello World!'
       ]
-      ###,
+      ,
         text: "Move to waypoint!"
         leaf: true
         type: "MoveToWaypointAction"
@@ -94,6 +91,16 @@ Ext.onReady ->
     rootVisible: false
     renderTo: "library-tree"
   )
+
+  for task in window.level.getMap().tasks
+    libraryTree.getRootNode().appendChild
+      text: task + ' (fix me)'
+      leaf: true
+      type: task
+      settings:
+        waypoint: 'trash'
+        dummy: 'fix me'
+
 
   behaviorTree = Ext.create("Ext.tree.Panel",
     id: "tree2"

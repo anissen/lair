@@ -43,7 +43,7 @@ class TweenAction extends Task
 
 context = canvas.getContext '2d'
 
-level = new window.Level
+window.level = level = new window.Level
 map = new window.Map
 
 level.init()
@@ -150,6 +150,7 @@ level.addAgent agent1
 
 map.init context, level
 
+
 printTree = (node, indent) ->
   indent += "-"
   $.each node.childNodes, (i, n) ->
@@ -202,5 +203,3 @@ generateBehaviorTree = (node, agent) ->
 $('#assign-behavior').on 'click', (evt) ->
   evt.preventDefault()
   assignBehaviorToAgents behaviorTree.getRootNode()
-
-
