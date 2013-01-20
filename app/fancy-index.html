@@ -24,7 +24,7 @@
 
     <link href="styles/main.css" rel="stylesheet">
   </head>
-  <body>
+  <body ng-app="lairApp">
 
     <!--[if lt IE 7]>
         <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
@@ -59,58 +59,18 @@
       </div>
     </div>
 
-    <div class="container">
-      <div class="row">
-        <div class="span12 well well-small">
-          <h4>Map Overview</h4>
-          <canvas id="canvas" width="1140px" height="420px"></canvas>
-        </div>
-      </div>
+    <!-- Add your site or application content here -->
+    <div class="container" ng-view></div>
 
-      <div class="row-fluid">
-        <div class="span12 well well-small">
-
-          <div class="row-fluid">
-            <div class="span4">
-              <h4>Behavior Library</h4>
-              <div id="library-tree"></div>
-            </div>
-
-            <div class="span4">
-              <h4>Behavior Tree <a id="assign-behavior" href="#" class="btn btn-primary btn-mini pull-right">Assign behavior</a></h4>
-              <div id="behavior-tree"></div>
-            </div>
-
-            <div class="span4">
-              <h4>Properties</h4>
-              <div id="property-grid"></div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-
-    <!-- TODO: Consider including scripts in controller instead of in the view -->
     <script src="scripts/vendor/jquery/jquery.min.js"></script>
-
-    <script src="scripts/vendor/createjs/easeljs.min.js"></script>
-    <script src="scripts/vendor/createjs/tweenjs.min.js"></script>
-
-    <script src="scripts/vendor/easystar.min.js"></script>
-    <script src="scripts/vendor/behave.js"></script>
-
-    <script src="scripts/vendor/Tween.js"></script>
-
-    <script src="scripts/game/level.js"></script>
-    <script src="scripts/game/main.js"></script>
-
-    <!-- ExtJS -->
-    <script src="scripts/vendor/extjs/ext-all.js"></script>
-
-    <script src="scripts/controllers/behavior_tree_editor.js"></script>
+    <script src="scripts/vendor/angular.js"></script>
     <script src="scripts/vendor/jquery/jquery.pnotify.min.js"></script>
+
+    <!-- build:js scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/home.js"></script>
+    <script src="scripts/controllers/lair.js"></script>
+    <!-- endbuild -->
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <!--

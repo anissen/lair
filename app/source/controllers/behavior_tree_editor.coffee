@@ -94,13 +94,10 @@ Ext.onReady ->
 
   for task in window.level.getMap().tasks
     libraryTree.getRootNode().appendChild
-      text: task + ' (fix me)'
+      text: task.name
       leaf: true
-      type: task
-      settings:
-        waypoint: 'trash'
-        dummy: 'fix me'
-
+      type: task.name
+      settings: task.settings
 
   behaviorTree = Ext.create("Ext.tree.Panel",
     id: "tree2"
@@ -132,7 +129,12 @@ Ext.onReady ->
 
     listeners:
       itemclick: (view, rec, item, index, eventObj) ->
+        console.log rec
         propertyGrid.setSource rec.raw.settings
+      ,
+      itemappend: (thisNode, node, refNode, eOpts) ->
+        # cannot figure out how to select newly added node ('node')
+        #propertyGrid.fireEvent 'itemclick', null, node, null, null, null
 
     renderTo: "behavior-tree"
   )

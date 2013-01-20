@@ -70,6 +70,30 @@ agent.setBehavior root
 level.addAgent agent
 ###
 
+class PickUpTrashAction extends Task
+  constructor: (@agent) ->
+  execute: ->
+    if @agent.x isnt Math.round(map.trash.x) and @agent.y isnt Math.round(map.trash.y)
+      return TaskStatus.FAILURE
+
+    if map.trash.pickUp()
+      @agent.hasTrash = true
+      return TaskStatus.SUCCESS
+
+    TaskStatus.FAILURE
+
+class DumpTrashAction extends Task
+  constructor: (@agent) ->
+  execute: ->
+    if not @agent.hasTrash
+      return TaskStatus.FAILURE
+
+    if @agent.x isnt Math.round(map.dumpster.x) and @agent.y isnt Math.round(map.dumpster.y)
+      return TaskStatus.FAILURE
+
+    map.dumpster.dumpTrash()
+    TaskStatus.SUCCESS
+
 class MovePathTask extends Task
   constructor: (@agent, waypoint) ->
     acceptableTiles = [1]
@@ -91,7 +115,7 @@ class MovePathTask extends Task
       to =
         x: p.x
         y: p.y
-      @moveTween = new TweenAction @agent, to, TWEEN.Easing.Quadratic.InOut, 500
+      @moveTween = new TweenAction @agent, to, TWEEN.Easing.Quadratic.InOut, 400
       @moveTween.activate()
 
     return TaskStatus.RUNNING
@@ -192,6 +216,10 @@ generateBehaviorTree = (node, agent) ->
       alert 'Invalid agentId' if not agentToSee?
       alert 'Agent to see is the agent itself' if agent is agentToSee
       treeNode = new CanSeeAgentCondition agent, agentToSee
+    when 'PickUpTrashAction'
+      treeNode = new PickUpTrashAction agent
+    when 'DumpTrashAction'
+      treeNode = new DumpTrashAction agent
     else
       throw new Error 'Unknown tree node type: "' + node.raw.type + '"'
 
